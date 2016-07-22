@@ -14,7 +14,7 @@ public class BlobController : MonoBehaviour {
 //		rb = GetComponent<Rigidbody> ();
 		main_camera = Camera.main.GetComponent<Camera>();
 		cam_distance = Vector3.Distance (main_camera.transform.position, floor.transform.position);
-		Debug.Log ("got cam distance");
+//		Debug.Log ("got cam distance");
 	}
 	
 	void FixedUpdate () {
