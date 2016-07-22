@@ -7,13 +7,14 @@ public class BlobController : MonoBehaviour {
 	public float sensitivity;
 	public float speed;
 	public GameObject floor;
-	private Camera camera;
+	private Camera main_camera;
 	private float cam_distance;
 
 	void Start () {
 //		rb = GetComponent<Rigidbody> ();
-		camera = Camera.main.GetComponent<Camera>();
-		cam_distance = Vector3.Distance (camera.transform.position, floor.transform.position);
+		main_camera = Camera.main.GetComponent<Camera>();
+		cam_distance = Vector3.Distance (main_camera.transform.position, floor.transform.position);
+		Debug.Log ("got cam distance");
 	}
 	
 	void FixedUpdate () {
@@ -26,8 +27,8 @@ public class BlobController : MonoBehaviour {
 
 		// Pinned to Mouse (also works with touch on mobile)
 		if (Input.GetMouseButton(0)) {
-			Vector3 p = camera.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, cam_distance));
-			Debug.logger.Log (cam_distance);
+			Vector3 p = main_camera.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, cam_distance));
+//			Debug.logger.Log (cam_distance);
 			transform.position = p;
 		} 
 	}
