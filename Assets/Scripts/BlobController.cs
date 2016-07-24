@@ -3,15 +3,14 @@ using System.Collections;
 
 public class BlobController : MonoBehaviour {
 
-//	private Rigidbody rb;
+	private Rigidbody rb;
 	public float sensitivity;
-	public float speed;
 	public GameObject floor;
 	private Camera main_camera;
 	private float cam_distance;
 
 	void Start () {
-//		rb = GetComponent<Rigidbody> ();
+		rb = GetComponent<Rigidbody> ();
 		main_camera = Camera.main.GetComponent<Camera>();
 		cam_distance = Vector3.Distance (main_camera.transform.position, floor.transform.position);
 //		Debug.Log ("got cam distance");
@@ -26,10 +25,19 @@ public class BlobController : MonoBehaviour {
 //		rb.AddForce (force*sensitivity);
 
 		// Pinned to Mouse (also works with touch on mobile)
-		if (Input.GetMouseButton(0)) {
-			Vector3 p = main_camera.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, cam_distance));
-//			Debug.logger.Log (cam_distance);
-			transform.position = p;
-		} 
+//		if (Input.GetMouseButton(0)) {
+//			Vector3 p = main_camera.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, cam_distance));
+////			Debug.logger.Log (cam_distance);
+//			transform.position = p;
+//		} 
+
+		// Accelerate towards mouse
+		if (Input.GetMouseButton (0)) {
+			Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			mousePos = new Vector3 (mousePos.x, 0f, mousePos.z);
+			Vector3 force = mousePos - transform.position;
+			Debug.Log (mousePos);
+			rb.AddForce (force * sensitivity);
+		}
 	}
 }
