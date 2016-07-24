@@ -235,6 +235,7 @@ GameObject:
   - 92: {fileID: 408423856}
   - 124: {fileID: 408423855}
   - 81: {fileID: 408423854}
+  - 114: {fileID: 408423859}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -310,6 +311,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &408423859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 408423853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f965654d19f84f3488ba8a9295897f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorObject: {fileID: 2061256272}
 --- !u!1 &506287104
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,8 +485,8 @@ GameObject:
   - 33: {fileID: 1532232225}
   - 135: {fileID: 1532232224}
   - 23: {fileID: 1532232223}
-  - 114: {fileID: 1532232222}
   - 54: {fileID: 1532232227}
+  - 114: {fileID: 1532232222}
   m_Layer: 0
   m_Name: Master Blob
   m_TagString: masterBlob
@@ -730,7 +743,6 @@ GameObject:
   - 33: {fileID: 2061256275}
   - 64: {fileID: 2061256274}
   - 23: {fileID: 2061256273}
-  - 114: {fileID: 2061256277}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -797,14 +809,3 @@ Transform:
   - {fileID: 1213945493}
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!114 &2061256277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2061256272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06f31f49a64d344aa97b65d546c77774, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
