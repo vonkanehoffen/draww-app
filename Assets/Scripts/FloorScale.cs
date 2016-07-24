@@ -24,6 +24,7 @@ public class FloorScale : MonoBehaviour {
 
 //		Camera.main.orthographicSize = 30;
 
+		// Zoom camera to floor bounds
 		Vector3 floorSize = GetComponent<Renderer> ().bounds.size;
 		float orthoSize = Camera.main.orthographicSize;
 		float aspect = Camera.main.aspect;
@@ -35,6 +36,11 @@ public class FloorScale : MonoBehaviour {
 		Debug.Log ("Zoomed ortho size: " + zoomedOrthoSize);
 
 		Camera.main.orthographicSize = zoomedOrthoSize;
+
+		// Pan camera to top edge of floor
+		float camZ = -( (zoomedOrthoSize*2) - floorSize.z ) / 2;
+		Vector3 cp = Camera.main.transform.position;
+		Camera.main.transform.position = new Vector3 (cp.x, cp.y, camZ);
 
 	}
 	
