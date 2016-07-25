@@ -7,13 +7,13 @@ public class BlobController : MonoBehaviour {
 	private Rigidbody rb;
 	public float sensitivity;
 	public GameObject floor;
-	private Camera main_camera;
-	private float cam_distance;
+//	private Camera main_camera;
+//	private float cam_distance;
 
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
-		main_camera = Camera.main.GetComponent<Camera>();
-		cam_distance = Vector3.Distance (main_camera.transform.position, floor.transform.position);
+//		main_camera = Camera.main.GetComponent<Camera>();
+//		cam_distance = Vector3.Distance (main_camera.transform.position, floor.transform.position);
 	}
 	
 	void FixedUpdate () {
@@ -33,10 +33,15 @@ public class BlobController : MonoBehaviour {
 
 		// Accelerate towards mouse
 		if (Input.GetMouseButton (0)) {
-			Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			mousePos = new Vector3 (mousePos.x, 0f, mousePos.z);
-			Vector3 force = mousePos - transform.position;
-			rb.AddForce (force * sensitivity);
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+			if (Physics.Raycast (ray, out hit, 100)) {
+				print ("Hit something!" + hit.collider.gameObject);	// This gets the walls too though, so lets not bother
+				Vector3 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+				mousePos = new Vector3 (mousePos.x, 0f, mousePos.z);
+				Vector3 force = mousePos - transform.position;
+				rb.AddForce (force * sensitivity);
+			}
 		}
 	}
 
