@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class BlobController : MonoBehaviour {
 
@@ -36,8 +37,13 @@ public class BlobController : MonoBehaviour {
 			Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			mousePos = new Vector3 (mousePos.x, 0f, mousePos.z);
 			Vector3 force = mousePos - transform.position;
-			Debug.Log (mousePos);
+//			Debug.Log (mousePos);
 			rb.AddForce (force * sensitivity);
 		}
+	}
+
+	// Note: Targeted on the slider under "dynamic float"
+	public void OnSensitivitySliderChange( float sliderVal ) {
+		Debug.Log (sliderVal);
 	}
 }
