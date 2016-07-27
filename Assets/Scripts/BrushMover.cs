@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SlaveMover : MonoBehaviour {
+public class BrushMover : MonoBehaviour {
 
 	public float angle;
 	private GameObject master;
 
 	void Start() {
-		master = GameObject.FindGameObjectWithTag ("masterBlob");
+		master = GameObject.FindGameObjectWithTag ("userInput");
 	}
 
 	void Update () {

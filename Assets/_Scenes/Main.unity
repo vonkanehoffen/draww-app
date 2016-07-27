@@ -1093,7 +1093,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e52f1a8ec20e4ad5a055856e41c6412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slave: {fileID: 144380, guid: 8c496b988cfea4d348b578cee41b1b76, type: 2}
+  redTrail: {fileID: 144380, guid: 8c496b988cfea4d348b578cee41b1b76, type: 2}
+  greenTrail: {fileID: 144380, guid: 77822374a893a46659db5f0183f546fc, type: 2}
+  blueTrail: {fileID: 144380, guid: 77822374a893a46659db5f0183f546fc, type: 2}
+  stripesTrail: {fileID: 144380, guid: 77822374a893a46659db5f0183f546fc, type: 2}
   numberOfSlaves: 16
   radius: 2
 --- !u!4 &860953340
@@ -1281,15 +1284,15 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1505690405}
-        m_MethodName: updateColor
+      - m_Target: {fileID: 860953339}
+        m_MethodName: changeBrush
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: green
+          m_StringArgument: greenTrail
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1373,15 +1376,15 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1505690405}
-        m_MethodName: updateColor
+      - m_Target: {fileID: 860953339}
+        m_MethodName: changeBrush
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: red
+          m_StringArgument: redTrail
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1465,15 +1468,15 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1505690405}
-        m_MethodName: updateColor
+      - m_Target: {fileID: 860953339}
+        m_MethodName: changeBrush
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: blue
+          m_StringArgument: stripesTrail
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1691,15 +1694,15 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1505690405}
-        m_MethodName: updateColor
+      - m_Target: {fileID: 860953339}
+        m_MethodName: changeBrush
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: blue
+          m_StringArgument: blueTrail
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1850,7 +1853,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 1505690404}
-  - 114: {fileID: 1505690405}
   m_Layer: 5
   m_Name: Color Toggle
   m_TagString: Untagged
@@ -1881,18 +1883,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1505690405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1505690403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f032e7e4a15b34b58bf1cdea6f6c4c1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trailMaterial: {fileID: 0}
 --- !u!1 &1532232221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,7 +1898,7 @@ GameObject:
   - 114: {fileID: 1532232222}
   m_Layer: 0
   m_Name: User Input Object
-  m_TagString: masterBlob
+  m_TagString: userInput
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

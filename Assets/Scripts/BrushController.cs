@@ -3,29 +3,59 @@ using System.Collections;
 
 public class BrushController : MonoBehaviour {
 
-	public GameObject slave;
+	// Brushes
+	public GameObject redTrail;
+	public GameObject greenTrail;
+	public GameObject blueTrail;
+	public GameObject stripesTrail;
+
 	public int numberOfSlaves = 16;
 	public float radius = 2f;
-
-	// https://docs.unity3d.com/Manual/InstantiatingPrefabs.html
+	private string currentBrush;
 
 	void Start () {
-//		for (int y = 0; y < 5; y++) {
-//			for (int x = 0; x < 5; x++) {
-//				Instantiate(slave, new Vector3(x, y, 0), Quaternion.identity);
-//			}
-//		}
-		for (int i = 0; i < numberOfSlaves; i++) {
-			float angle = i * Mathf.PI * 2 / numberOfSlaves;
-			Vector3 pos = new Vector3(Mathf.Cos(angle), 0.25f, Mathf.Sin(angle)) * radius;
-			GameObject clone = (GameObject)Instantiate(slave, pos, Quaternion.identity);
-			SlaveMover cloneMover = clone.GetComponent<SlaveMover> ();
-			cloneMover.angle = angle * Mathf.Rad2Deg;
-		}
+		instantiateBrushes (redTrail);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	void instantiateBrushes( GameObject brush ) {
+		for (int i = 0; i < numberOfSlaves; i++) {
+			float angle = i * Mathf.PI * 2 / numberOfSlaves;
+			Vector3 pos = new Vector3(Mathf.Cos(angle), 0.25f, Mathf.Sin(angle)) * radius;
+			GameObject clone = (GameObject)Instantiate(brush, pos, Quaternion.identity);
+			BrushMover cloneMover = clone.GetComponent<BrushMover> ();
+			cloneMover.angle = angle * Mathf.Rad2Deg;
+		}
+	}
+
+	void destroyBrushes() {
+		GameObject[] brushes = GameObject.FindGameObjectsWithTag ("brush");
+		foreach (GameObject brush in brushes) {
+			Destroy (brush);
+		}
+	}
+
+	public void changeBrush (string brushName) {
+//		if (brushName != currentBrush) {
+			destroyBrushes ();
+			switch (brushName) {
+				case "redTrail":
+					instantiateBrushes (redTrail);
+					break;
+				case "greenTrail":
+					instantiateBrushes (greenTrail);
+					break;
+				default:
+					Debug.Log ("Unknown brush: " + brushName);
+					break;
+			}
+//		}
+
+		Debug.Log ("changeBrush: " + brushName);
+
 	}
 }
