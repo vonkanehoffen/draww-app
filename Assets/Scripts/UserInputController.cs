@@ -2,7 +2,10 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class BlobController : MonoBehaviour {
+// TODO: User input needs to respond to swipe better. 
+// Should pretty much follow gesture shape then "flick off" a bit?
+
+public class UserInputController : MonoBehaviour {
 
 	private Rigidbody rb;
 	public float sensitivity;

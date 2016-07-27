@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Vector3 floorSize = floorObject.GetComponent<Renderer> ().bounds.size;
-		float orthoSize = Camera.main.orthographicSize;
+//		float orthoSize = Camera.main.orthographicSize;
 		float aspect = Camera.main.aspect;
 		float zoomedOrthoSize = (floorSize.x / 2) / aspect;
 

@@ -14,7 +14,7 @@ GameObject:
   - 96: {fileID: 9683538}
   - 120: {fileID: 12018196}
   m_Layer: 0
-  m_Name: Slave Blob
+  m_Name: Red Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ TrailRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 679607e1d41cd44719ea2e4ffbca61da, type: 2}
+  - {fileID: 2100000, guid: f8bf8d601bb164e269a9541621bc7a6c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

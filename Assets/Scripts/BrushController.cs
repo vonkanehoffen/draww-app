@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SlaveSpawner : MonoBehaviour {
+public class BrushController : MonoBehaviour {
 
 	public GameObject slave;
 	public int numberOfSlaves = 16;
