@@ -49,6 +49,12 @@ public class BrushController : MonoBehaviour {
 				case "greenTrail":
 					instantiateBrushes (greenTrail);
 					break;
+				case "blueTrail":
+					instantiateBrushes (blueTrail);
+					break;
+				case "stripesTrail":
+					instantiateBrushes (stripesTrail);
+					break;
 				default:
 					Debug.Log ("Unknown brush: " + brushName);
 					break;

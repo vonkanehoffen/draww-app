@@ -699,7 +699,7 @@ RectTransform:
   m_GameObject: {fileID: 482771695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2120936018}
@@ -1095,8 +1095,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redTrail: {fileID: 144380, guid: 8c496b988cfea4d348b578cee41b1b76, type: 2}
   greenTrail: {fileID: 144380, guid: 77822374a893a46659db5f0183f546fc, type: 2}
-  blueTrail: {fileID: 144380, guid: 77822374a893a46659db5f0183f546fc, type: 2}
-  stripesTrail: {fileID: 144380, guid: 77822374a893a46659db5f0183f546fc, type: 2}
+  blueTrail: {fileID: 144380, guid: d13490b1325d74855b26d0e2720df70b, type: 2}
+  stripesTrail: {fileID: 144380, guid: d21c057b560c044c4a35b80175cbca47, type: 2}
   numberOfSlaves: 16
   radius: 2
 --- !u!4 &860953340
@@ -1157,7 +1157,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1868,7 +1868,7 @@ RectTransform:
   m_GameObject: {fileID: 1505690403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1113004879}
