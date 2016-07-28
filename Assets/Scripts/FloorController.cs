@@ -4,13 +4,16 @@ using System.Collections;
 public class FloorController : MonoBehaviour {
 
 	private Renderer rend;
+	private Renderer cursorRenderer;
 
 	void Start () {
 		rend = GetComponent<Renderer> ();
+		cursorRenderer = GameObject.FindGameObjectWithTag ("userInput").GetComponent<Renderer> ();
 	}
 
 	public void FreezeImage() {
-		// TRhis is necessary so the capture happens after drawing.
+		cursorRenderer.enabled = false;
+		// This is necessary so the capture happens after drawing.
 		StartCoroutine (SetTexture ());
 	}
 
@@ -24,6 +27,8 @@ public class FloorController : MonoBehaviour {
 		tex.ReadPixels(new Rect(0, h-w, w, w), 0, 0);
 		tex.Apply();
 		rend.material.mainTexture = tex;
+
+		cursorRenderer.enabled = true;
 	}
 
 }
