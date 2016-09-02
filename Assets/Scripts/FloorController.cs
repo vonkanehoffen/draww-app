@@ -5,6 +5,7 @@ public class FloorController : MonoBehaviour {
 
 	private Renderer rend;
 	private Renderer cursorRenderer;
+	public GameObject kaleido;
 
 	void Start () {
 		rend = GetComponent<Renderer> ();
@@ -29,6 +30,8 @@ public class FloorController : MonoBehaviour {
 		rend.material.mainTexture = tex;
 
 		cursorRenderer.enabled = true;
+		kaleido.SetActive (false);
+
 	}
 
 }
