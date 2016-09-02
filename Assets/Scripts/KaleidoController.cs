@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CamAttach : MonoBehaviour {
+public class KaleidoController : MonoBehaviour {
 
 	public GameObject[] faces;
 	public float textureScale;
 
 	// NatCam? https://www.assetstore.unity3d.com/en/#!/content/52154
-	// http://forum.unity3d.com/threads/webcamtexture-issue.392993/
 
 	void Start () {
 		WebCamTexture webcamTexture = new WebCamTexture();
@@ -26,4 +25,11 @@ public class CamAttach : MonoBehaviour {
 //		}
 	}
 
+	public void ToggleKaleido() {
+		if (gameObject.activeSelf) {
+			gameObject.SetActive (false);
+		} else {
+			gameObject.SetActive (true);
+		}
+	}
 }
