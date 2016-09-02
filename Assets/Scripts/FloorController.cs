@@ -84,7 +84,7 @@ https://www.assetstore.unity3d.com/en/#!/content/37272
 		string filePath = "/storage/emulated/0/Pictures/mandala_share.jpg";
 		Debug.Log("Sharing to: " + filePath);
 
-		File.WriteAllBytes (filePath, jpgData);
+//		File.WriteAllBytes (filePath, jpgData);
 
 		AndroidJavaClass intentClass = new AndroidJavaClass ("android.content.Intent");
 		AndroidJavaObject intentObject = new AndroidJavaObject ("android.content.Intent");
