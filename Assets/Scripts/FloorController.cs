@@ -9,7 +9,7 @@ public class FloorController : MonoBehaviour {
 
 	private Renderer rend;
 	private Renderer cursorRenderer;
-	private byte[] jpgData;
+	private byte[] pngData;
 
 	void Start () {
 		rend = GetComponent<Renderer> ();
@@ -33,7 +33,7 @@ public class FloorController : MonoBehaviour {
 		tex.Apply();
 		rend.material.mainTexture = tex;
 
-		jpgData = tex.EncodeToJPG (90);
+		pngData = tex.EncodeToPNG ();
 
 		cursorRenderer.enabled = true;
 		kaleido.SetActive (false);
@@ -68,11 +68,10 @@ https://developer.android.com/training/secure-file-sharing/setup-sharing.html
 */
 
 	public void ShareImage() {
-		string filePath = Application.persistentDataPath + "/share.jpg";
-//		string filePath = "/storage/emulated/0/Pictures/mandala_share.jpg";
+		string filePath = Application.persistentDataPath + "/share.png";
 		Debug.Log("Sharing to: " + filePath);
 
-		File.WriteAllBytes (filePath, jpgData);
+		File.WriteAllBytes (filePath, pngData);
 
 		shareScript.Share ("#draww", filePath, "");
 	}
