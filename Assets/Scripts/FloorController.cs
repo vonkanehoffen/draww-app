@@ -5,6 +5,7 @@ using System.IO;
 public class FloorController : MonoBehaviour {
 
 	public GameObject kaleido;
+	public NativeShare shareScript;
 
 	private Renderer rend;
 	private Renderer cursorRenderer;
@@ -40,16 +41,9 @@ public class FloorController : MonoBehaviour {
 	}
 
 /**
-Use native OS sharing stuff.
-For iOS?: http://x-team.com/2014/06/unity-instagram-sharing/
 
-Android for now though
-http://www.daniel4d.com/blog/sharing-image-unity-android/
-http://docs.unity3d.com/ScriptReference/AndroidJavaClass.html
-https://developer.android.com/training/sharing/shareaction.html
-...or is this classed as a file?
-
-adb logcat
+Sharing. Using:
+https://github.com/ChrisMaire/unity-native-sharing
 
 Application.persistentDataPath:
 /storage/emulated/0/Android/data/com.kanec.MandalaTest/files/share.jpg
@@ -69,45 +63,18 @@ https://developer.android.com/reference/android/os/Environment.html#DIRECTORY_PI
 actually now it's about FileProvider (no external sd writing)
 https://developer.android.com/training/secure-file-sharing/setup-sharing.html
 
-Paid plugin?
-https://www.assetstore.unity3d.com/en/#!/content/58972
-UniShare
-
-or free: 
-Cross Platform Native Plugins - Lite Version
-https://www.assetstore.unity3d.com/en/#!/content/37272
+...maybe needs less permissions?
 
 */
 
 	public void ShareImage() {
-//		string filePath = Application.persistentDataPath + "/share.jpg";
-		string filePath = "/storage/emulated/0/Pictures/mandala_share.jpg";
+		string filePath = Application.persistentDataPath + "/share.jpg";
+//		string filePath = "/storage/emulated/0/Pictures/mandala_share.jpg";
 		Debug.Log("Sharing to: " + filePath);
 
-//		File.WriteAllBytes (filePath, jpgData);
+		File.WriteAllBytes (filePath, jpgData);
 
-		AndroidJavaClass intentClass = new AndroidJavaClass ("android.content.Intent");
-		AndroidJavaObject intentObject = new AndroidJavaObject ("android.content.Intent");
-		intentObject.Call<AndroidJavaObject>("setAction", intentClass.GetStatic<string>("ACTION_SEND"));
-		AndroidJavaClass uriClass = new AndroidJavaClass("android.net.Uri");
-
-		//instantiate the object Uri with the parse of the url's file
-		AndroidJavaObject uriObject = uriClass.CallStatic<AndroidJavaObject>("parse",filePath);
-
-		//call putExtra with the uri object of the file
-		intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_STREAM"), uriObject);
-
-		//set the type of file
-		intentObject.Call<AndroidJavaObject>("setType", "image/jpeg");
-
-		//instantiate the class UnityPlayer
-		AndroidJavaClass unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-
-		//instantiate the object currentActivity
-		AndroidJavaObject currentActivity = unity.GetStatic<AndroidJavaObject>("currentActivity");
-
-		//call the activity with our Intent
-		currentActivity.Call("startActivity", intentObject);
+		shareScript.Share ("#draww", filePath, "");
 	}
 
 }
