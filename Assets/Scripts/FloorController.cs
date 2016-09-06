@@ -6,6 +6,7 @@ public class FloorController : MonoBehaviour {
 
 	public GameObject kaleido;
 	public NativeShare shareScript;
+	public UIController ui;
 
 	private Renderer rend;
 	private Renderer cursorRenderer;
@@ -37,7 +38,7 @@ public class FloorController : MonoBehaviour {
 
 		cursorRenderer.enabled = true;
 		kaleido.SetActive (false);
-
+		ui.setState ("draw");
 	}
 
 /**

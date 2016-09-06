@@ -7,6 +7,7 @@ public class UIController : MonoBehaviour {
 	public GameObject drawButton;
 	public GameObject kaleidoButton;
 	public GameObject colorToggle;
+	public GameObject kaleido;
 
 	// Use this for initialization
 	void Start () {
@@ -22,19 +23,21 @@ public class UIController : MonoBehaviour {
 		uiState = state;
 		Debug.Log (uiState);
 		switch (uiState) {
-			case "kaleido":
-				drawButton.SetActive (true);
-				kaleidoButton.SetActive (false);
-				colorToggle.SetActive (false);
-				break;
-			case "draw":
-				drawButton.SetActive (false);
-				kaleidoButton.SetActive (true);
-				colorToggle.SetActive (true);
-				break;
-			default:
-				Debug.Log ("Invalid state");
-				break;
+		case "kaleido":
+			drawButton.SetActive (true);
+			kaleidoButton.SetActive (false);
+			colorToggle.SetActive (false);
+			kaleido.SetActive (true);
+			break;
+		case "draw":
+			drawButton.SetActive (false);
+			kaleidoButton.SetActive (true);
+			colorToggle.SetActive (true);
+			kaleido.SetActive (false);
+			break;
+		default:
+			Debug.Log ("Invalid state");
+			break;
 		}
 	}
 

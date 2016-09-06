@@ -25,6 +25,7 @@ public class KaleidoController : MonoBehaviour {
 //		}
 	}
 
+	// Not used any more? UI controller instead.
 	public void ToggleKaleido() {
 		if (gameObject.activeSelf) {
 			gameObject.SetActive (false);
