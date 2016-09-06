@@ -7,6 +7,7 @@ public class BrushController : MonoBehaviour {
 	public GameObject redTrail;
 	public GameObject greenTrail;
 	public GameObject blueTrail;
+	public GameObject orangeTrail;
 	public GameObject stripesTrail;
 
 	public int numberOfSlaves = 16;
@@ -51,6 +52,9 @@ public class BrushController : MonoBehaviour {
 					break;
 				case "blueTrail":
 					instantiateBrushes (blueTrail);
+					break;
+				case "orangeTrail":
+					instantiateBrushes (orangeTrail);
 					break;
 				case "stripesTrail":
 					instantiateBrushes (stripesTrail);
