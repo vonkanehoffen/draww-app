@@ -65,7 +65,7 @@ public class BrushController : MonoBehaviour {
 			}
 //		}
 
-		Debug.Log ("changeBrush: " + brushName);
+//		Debug.Log ("changeBrush: " + brushName);
 
 	}
 }

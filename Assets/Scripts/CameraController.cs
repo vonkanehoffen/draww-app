@@ -12,10 +12,10 @@ public class CameraController : MonoBehaviour {
 		float aspect = Camera.main.aspect;
 		float zoomedOrthoSize = (floorSize.x / 2) / aspect;
 
-		Debug.Log ("floor size: " + floorSize);
-		Debug.Log ("Ortho size: " + Camera.main.orthographicSize);
-		Debug.Log ("Aspect: " + Camera.main.aspect);
-		Debug.Log ("Zoomed ortho size: " + zoomedOrthoSize);
+//		Debug.Log ("floor size: " + floorSize);
+//		Debug.Log ("Ortho size: " + Camera.main.orthographicSize);
+//		Debug.Log ("Aspect: " + Camera.main.aspect);
+//		Debug.Log ("Zoomed ortho size: " + zoomedOrthoSize);
 
 		Camera.main.orthographicSize = zoomedOrthoSize;
 

@@ -21,7 +21,7 @@ public class UIController : MonoBehaviour {
 
 	public void setState (string state) {
 		uiState = state;
-		Debug.Log (uiState);
+//		Debug.Log (uiState);
 		switch (uiState) {
 		case "kaleido":
 			drawButton.SetActive (true);

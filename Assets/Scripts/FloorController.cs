@@ -70,7 +70,7 @@ https://developer.android.com/training/secure-file-sharing/setup-sharing.html
 
 	public void ShareImage() {
 		string filePath = Application.persistentDataPath + "/share.png";
-		Debug.Log("Sharing to: " + filePath);
+//		Debug.Log("Sharing to: " + filePath);
 
 		File.WriteAllBytes (filePath, pngData);
 
