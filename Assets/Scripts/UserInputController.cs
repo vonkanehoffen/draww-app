@@ -23,34 +23,29 @@ public class UserInputController : MonoBehaviour {
 	
 	void FixedUpdate () {
 
-		// Cursor keys and force
-//		float haxis = Input.GetAxis ("Horizontal");
-//		float vaxis = Input.GetAxis ("Vertical");
-//		Vector3 force = new Vector3 (haxis, 0.0f, vaxis);
-//		rb.AddForce (force*sensitivity);
-
-		// Pinned to Mouse (also works with touch on mobile)
-//		if (Input.GetMouseButton(0)) {
-//			Vector3 p = main_camera.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, cam_distance));
-////			Debug.logger.Log (cam_distance);
-//			transform.position = p;
-//		} 
-
 		// Accelerate towards mouse
-		if (Input.GetMouseButton (0)) {
-			
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			RaycastHit hit;
+//		if (Input.GetMouseButton (0)) {
+//			
+//			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+//			RaycastHit hit;
+//
+//			if (floorCollider.Raycast (ray, out hit, 100)) {
+//				
+//				Vector3 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+//				mousePos = new Vector3 (mousePos.x, 0f, mousePos.z);
+//				Vector3 force = mousePos - transform.position;
+//				rb.AddForce (force * sensitivity);
+//
+//			}
+//		}
 
-			if (floorCollider.Raycast (ray, out hit, 100)) {
-				
-				Vector3 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-				mousePos = new Vector3 (mousePos.x, 0f, mousePos.z);
-				Vector3 force = mousePos - transform.position;
-				rb.AddForce (force * sensitivity);
-
-			}
+		// Accelerate on touch swipe
+		if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Moved) {
+			Vector2 touchDeltaPosition = Input.GetTouch (0).deltaPosition;
+			Vector3 force = new Vector3 (touchDeltaPosition.x, 0f, touchDeltaPosition.y);
+			rb.AddForce (force * sensitivity);
 		}
+
 	}
 
 	// Note: Targeted on the slider under "dynamic float"
