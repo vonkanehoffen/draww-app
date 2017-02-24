@@ -2,8 +2,9 @@
 using System.Collections;
 using UnityEngine.UI;
 
-// TODO: User input needs to respond to swipe better. 
-// Should pretty much follow gesture shape then "flick off" a bit?
+// Attached to User Input Object
+// Moves it according to touch input
+// Note: brush prefabs look to this object to get ther positions.
 
 public class UserInputController : MonoBehaviour {
 

@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Attached to Brush prefabs
+// Moves them in relation to `userInput` object based on `angle`
+// (set by BrushController script when instantating prefabs)
+
 public class BrushMover : MonoBehaviour {
 
 	public float angle;

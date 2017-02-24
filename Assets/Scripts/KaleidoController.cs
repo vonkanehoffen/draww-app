@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Attached to Kaleidoscope parent object
+// Sets webcam texture on all triangles.
+
 public class KaleidoController : MonoBehaviour {
 
 	public GameObject[] faces;
@@ -18,19 +21,4 @@ public class KaleidoController : MonoBehaviour {
 		webcamTexture.Play();
 	}
 
-	void Update () {
-//		foreach (GameObject face in faces) {
-//			Renderer renderer = face.GetComponent<Renderer> ();
-//			renderer.material.mainTextureScale = new Vector2 (textureScale, textureScale);
-//		}
-	}
-
-	// Not used any more? UI controller instead.
-	public void ToggleKaleido() {
-		if (gameObject.activeSelf) {
-			gameObject.SetActive (false);
-		} else {
-			gameObject.SetActive (true);
-		}
-	}
 }

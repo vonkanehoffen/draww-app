@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Attached to UI Canvas
+// Called from UI draw/kaleido buttons + floor controller.
+// Switches UI mode between kaleidoscope or drawing by showing / hiding elements
+
 public class UIController : MonoBehaviour {
 
 	private string uiState;
@@ -12,11 +16,6 @@ public class UIController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		uiState = "kaleido";
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
 	public void setState (string state) {

@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Attached to empty object.
+// - `changeBrush` method called from 'Colour Toggle' UI which...
+// - Instantiates circle of appropriate colour prefab brush objects
+// - Sets `angle` property of their `BrushMover` scripts 
+
 public class BrushController : MonoBehaviour {
 
 	// Brushes

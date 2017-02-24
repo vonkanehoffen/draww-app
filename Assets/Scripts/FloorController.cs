@@ -2,6 +2,15 @@
 using System.Collections;
 using System.IO;
 
+// Attached to floor object
+// FreezeImage() called by UI Shutter Button which reads 
+// - copies current pixels into texture for floor
+// - encodes it as a PNG ready to share
+// - Turns of the kaleidoscope 
+// - Sets UI to draw mode
+
+// ShareImage() called from UI to share (obs!)
+
 public class FloorController : MonoBehaviour {
 
 	public GameObject kaleido;

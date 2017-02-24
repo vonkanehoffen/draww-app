@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Attached to Main Camera
+// Pans and Zooms cam to show draw area full screen.
+
 public class CameraController : MonoBehaviour {
 
 	public GameObject floorObject;
@@ -8,14 +11,8 @@ public class CameraController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Vector3 floorSize = floorObject.GetComponent<Renderer> ().bounds.size;
-//		float orthoSize = Camera.main.orthographicSize;
 		float aspect = Camera.main.aspect;
 		float zoomedOrthoSize = (floorSize.x / 2) / aspect;
-
-//		Debug.Log ("floor size: " + floorSize);
-//		Debug.Log ("Ortho size: " + Camera.main.orthographicSize);
-//		Debug.Log ("Aspect: " + Camera.main.aspect);
-//		Debug.Log ("Zoomed ortho size: " + zoomedOrthoSize);
 
 		Camera.main.orthographicSize = zoomedOrthoSize;
 
