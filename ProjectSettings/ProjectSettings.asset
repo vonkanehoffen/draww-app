@@ -526,14 +526,14 @@ PlayerSettings:
   cloudServicesEnabled:
     Analytics: 0
     Build: 0
-    Collab: 0
+    Collab: 1
     ErrorHub: 0
     Game_Performance: 0
     Hub: 0
     Purchasing: 0
     UNet: 0
     Unity_Ads: 0
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  cloudProjectId: 267a14ee-1d5f-4d30-809a-164a09a2878d
+  projectName: Draww
+  organizationId: vonkanehoffen
   cloudEnabled: 0

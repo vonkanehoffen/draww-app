@@ -48,6 +48,11 @@ public class FloorController : MonoBehaviour {
 		cursorRenderer.enabled = true;
 		kaleido.SetActive (false);
 		ui.setState ("draw");
+
+		// First run hints...
+		if (HintsController.hintState <= 4) {
+			HintsController.hintState++;
+		}
 	}
 
 /**
@@ -78,6 +83,11 @@ https://developer.android.com/training/secure-file-sharing/setup-sharing.html
 */
 
 	public void ShareImage() {
+
+		// First run hints...
+		if(HintsController.hintState == 4) 
+			HintsController.hintState++;
+
 		string filePath = Application.persistentDataPath + "/share.png";
 //		Debug.Log("Sharing to: " + filePath);
 

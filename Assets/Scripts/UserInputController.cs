@@ -11,13 +11,13 @@ public class UserInputController : MonoBehaviour {
 	private Rigidbody rb;
 	public float sensitivity;
 	public GameObject floor;
-	private Collider floorCollider;
+//	private Collider floorCollider;
 //	private Camera main_camera;
 //	private float cam_distance;
 
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
-		floorCollider = floor.GetComponent<Collider> ();
+//		floorCollider = floor.GetComponent<Collider> ();
 //		main_camera = Camera.main.GetComponent<Camera>();
 //		cam_distance = Vector3.Distance (main_camera.transform.position, floor.transform.position);
 	}
@@ -45,6 +45,10 @@ public class UserInputController : MonoBehaviour {
 			Vector2 touchDeltaPosition = Input.GetTouch (0).deltaPosition;
 			Vector3 force = new Vector3 (touchDeltaPosition.x, 0f, touchDeltaPosition.y);
 			rb.AddForce (force * sensitivity);
+
+			// First run hints:
+			if (HintsController.hintState == 2)
+				HintsController.hintState++;
 		}
 
 	}
