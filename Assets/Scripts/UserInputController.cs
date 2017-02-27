@@ -47,7 +47,7 @@ public class UserInputController : MonoBehaviour {
 			rb.AddForce (force * sensitivity);
 
 			// First run hints:
-			if (HintsController.hintState == 2)
+			if (HintsController.hintState == 2 || HintsController.hintState == 4)
 				HintsController.hintState++;
 		}
 

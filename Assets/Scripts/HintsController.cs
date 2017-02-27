@@ -5,9 +5,10 @@ using UnityEngine;
 // Shows and hides hint labels
 
 public class HintsController : MonoBehaviour {
-
-	private int oldHintState;
-	public static int hintState = 0; // Static vars are per clas, not per instance of class.
+	
+	private static int hintsShown;
+	private static int oldHintState = 0;
+	public static int hintState = 1; // Static vars are per class, not per instance of class.
 	public GameObject step1;
 	public GameObject step2;
 	public GameObject step3;
@@ -16,19 +17,18 @@ public class HintsController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 //		PlayerPrefs.DeleteAll ();
-		hintState = PlayerPrefs.GetInt("hintState", 1);
+		hintsShown = PlayerPrefs.GetInt("hintsShown", 0);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(hintState != oldHintState) {
-			Debug.Log("changed hint");
-			PlayerPrefs.SetInt ("hintState", hintState);
 			step1.SetActive (false);
 			step2.SetActive (false);
 			step3.SetActive (false);
 			step4.SetActive (false);
-			switch (hintState) {
+			if(hintsShown != 1) {
+				switch (hintState) {
 				case 1:
 					step1.SetActive (true);
 					break;
@@ -41,6 +41,11 @@ public class HintsController : MonoBehaviour {
 				case 4:
 					step4.SetActive (true);
 					break;
+				case 5:
+					hintsShown = 1;
+					PlayerPrefs.SetInt ("hintsShown", 1);
+					break;
+				}
 			}
 			oldHintState = hintState;
 		}

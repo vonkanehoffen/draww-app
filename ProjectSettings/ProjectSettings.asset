@@ -198,7 +198,7 @@ PlayerSettings:
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: /Users/cormorant/Code/Unity/KeyStores/unity_android.keystore
-  AndroidKeyaliasName: 
+  AndroidKeyaliasName: kanecunityandroidkey
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1
